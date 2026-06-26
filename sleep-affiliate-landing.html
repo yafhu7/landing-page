@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>This 7-Second Night Trick Fixes Deep Sleep Without Pills</title>
+  <style>
+    /* ============================================================
+       TOKENS
+    ============================================================ */
+    :root {
+      --bg-deep:      #0B1120;
+      --bg-mid:       #152035;
+      --bg-card:      #1A2840;
+      --bg-card2:     #0F1D30;
+      --accent-cta:   #F59E0B;
+      --accent-cta-h: #FBBF24;
+      --accent-blue:  #93C5FD;
+      --accent-red:   #EF4444;
+      --text-head:    #F0F4FF;
+      --text-body:    #CBD5E1;
+      --text-dim:     #64748B;
+      --text-white:   #FFFFFF;
+      --border:       rgba(255,255,255,0.07);
+      --pain-tint:    rgba(100, 10, 10, 0.55);
+      --relief-tint:  rgba(10, 40, 80, 0.35);
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg-deep);
+      color: var(--text-body);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+    a   { text-decoration: none; color: inherit; }
+
+    /* ============================================================
+       LAYOUT
+    ============================================================ */
+    .wrap {
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    section { position: relative; }
+
+    /* ============================================================
+       SCROLL FADE-IN
+    ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1),
+                  transform 0.65s cubic-bezier(0.22,1,0.36,1);
+    }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    .rv1 { transition-delay: 0.08s; }
+    .rv2 { transition-delay: 0.18s; }
+    .rv3 { transition-delay: 0.28s; }
+    .rv4 { transition-delay: 0.38s; }
+
+    /* ============================================================
+       TOP BAR
+    ============================================================ */
+    .topbar {
+      background: var(--accent-red);
+      text-align: center;
+      padding: 10px 16px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+    .topbar span { animation: blink 2s step-end infinite; }
+    @keyframes blink {
+      0%,100% { opacity: 1; }
+      50%      { opacity: 0.4; }
+    }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    .hero {
+      padding: 52px 0 40px;
+      text-align: center;
+      background: linear-gradient(180deg, #0D1828 0%, var(--bg-deep) 100%);
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-blue);
+      background: rgba(147,197,253,0.1);
+      border: 1px solid rgba(147,197,253,0.2);
+      padding: 5px 16px;
+      border-radius: 50px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(1.75rem, 6.5vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text-head);
+      margin-bottom: 20px;
+      max-width: 580px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent-cta);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--text-body);
+      max-width: 520px;
+      margin: 0 auto 36px;
+      line-height: 1.75;
+    }
+
+    .hero-sub strong { color: var(--text-head); font-weight: 600; }
+
+    /* ============================================================
+       DIPTYCH IMAGE PANEL
+    ============================================================ */
+    .diptych {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      margin: 0 0 36px;
+      position: relative;
+      border: 1px solid var(--border);
+    }
+
+    .diptych-panel {
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+    }
+
+    .diptych-panel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      filter: saturate(0.65) brightness(0.65);
+      transition: filter 0.4s ease;
+    }
+
+    .diptych-panel.pain   img { filter: saturate(0.4) brightness(0.5); }
+    .diptych-panel.relief img { filter: saturate(0.7) brightness(0.72); }
+
+    .diptych-panel.pain::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--pain-tint);
+    }
+
+    .diptych-panel.relief::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--relief-tint);
+    }
+
+    .diptych-label {
+      position: absolute;
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 50px;
+      white-space: nowrap;
+    }
+
+    .pain   .diptych-label { background: rgba(239,68,68,0.85); color: #fff; }
+    .relief .diptych-label { background: rgba(34,197,94,0.85);  color: #fff; }
+
+    .diptych-divider {
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 50%;
+      width: 2px;
+      background: linear-gradient(180deg, transparent, #fff 30%, #fff 70%, transparent);
+      opacity: 0.3;
+      z-index: 3;
+      transform: translateX(-50%);
+    }
+
+    .diptych-caption {
+      position: absolute;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 4;
+      background: rgba(11,17,32,0.85);
+      border: 1px solid var(--border);
+      color: var(--text-head);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 50px;
+      white-space: nowrap;
+    }
+
+    /* ============================================================
+       CTA BUTTON
+    ============================================================ */
+    .cta-wrap { text-align: center; }
+
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #D97706 0%, var(--accent-cta) 50%, #FBBF24 100%);
+      color: #0B0F00;
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      padding: 20px 36px;
+      border-radius: 50px;
+      width: 100%;
+      max-width: 500px;
+      text-align: center;
+      box-shadow: 0 0 0 0 rgba(245,158,11,0.6),
+                  0 6px 32px rgba(245,158,11,0.3);
+      animation: pulse-cta 2.6s ease-in-out infinite;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.18) 0%, transparent 50%);
+      border-radius: inherit;
+    }
+
+    .cta-btn:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 40px 8px rgba(245,158,11,0.45),
+                  0 8px 40px rgba(245,158,11,0.4);
+      animation: none;
+    }
+
+    @keyframes pulse-cta {
+      0%,100% { box-shadow: 0 0 0 0 rgba(245,158,11,0.5), 0 6px 32px rgba(245,158,11,0.3); }
+      50%      { box-shadow: 0 0 0 10px rgba(245,158,11,0), 0 6px 32px rgba(245,158,11,0.3); }
+    }
+
+    .cta-note {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      margin-top: 12px;
+      letter-spacing: 0.01em;
+    }
+    .cta-note strong { color: var(--accent-red); }
+
+    /* ============================================================
+       SECTION DIVIDER
+    ============================================================ */
+    .sec-rule {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--text-dim), transparent);
+      margin: 0;
+      opacity: 0.25;
+    }
+
+    /* ============================================================
+       STORY SECTION
+    ============================================================ */
+    .story-section {
+      padding: 60px 0;
+      background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-mid) 100%);
+    }
+
+    .sec-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent-blue);
+      margin-bottom: 14px;
+    }
+
+    .story-section h2 {
+      font-family: Georgia, serif;
+      font-size: clamp(1.45rem, 5vw, 1.9rem);
+      font-weight: 700;
+      color: var(--text-head);
+      line-height: 1.28;
+      margin-bottom: 28px;
+    }
+
+    .story-section h2 em {
+      font-style: italic;
+      color: var(--accent-blue);
+    }
+
+    .story-p {
+      font-size: 1rem;
+      color: var(--text-body);
+      line-height: 1.82;
+      margin-bottom: 18px;
+    }
+
+    .story-p strong { color: var(--text-head); font-weight: 600; }
+
+    .story-p.highlight {
+      border-left: 3px solid var(--accent-cta);
+      padding-left: 18px;
+      color: var(--text-head);
+      font-style: italic;
+      margin: 28px 0;
+    }
+
+    /* ============================================================
+       CURIOSITY BULLETS SECTION
+    ============================================================ */
+    .bullets-section {
+      padding: 60px 0;
+      background: var(--bg-mid);
+    }
+
+    .bullets-section h2 {
+      font-family: Georgia, serif;
+      font-size: clamp(1.35rem, 5vw, 1.75rem);
+      font-weight: 700;
+      color: var(--text-head);
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+
+    .bullets-section .sub {
+      color: var(--text-dim);
+      font-size: 0.92rem;
+      margin-bottom: 32px;
+    }
+
+    .bullet-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 0;
+    }
+
+    .bullet-item {
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent-cta);
+      border-radius: 10px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .bullet-icon {
+      font-size: 1.15rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .bullet-text {
+      font-size: 0.97rem;
+      color: var(--text-head);
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    .bullet-sub {
+      font-size: 0.83rem;
+      color: var(--text-dim);
+      font-weight: 400;
+      margin-top: 3px;
+    }
+
+    /* ============================================================
+       URGENCY SECTION
+    ============================================================ */
+    .urgency-section {
+      padding: 44px 0;
+      background: linear-gradient(135deg, #1A0A0A 0%, #1A1020 100%);
+      border-top: 1px solid rgba(239,68,68,0.2);
+      border-bottom: 1px solid rgba(239,68,68,0.2);
+      text-align: center;
+    }
+
+    .urgency-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(239,68,68,0.12);
+      border: 1px solid rgba(239,68,68,0.35);
+      border-radius: 50px;
+      padding: 7px 20px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #FCA5A5;
+      margin-bottom: 20px;
+    }
+
+    .urgency-badge .dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--accent-red);
+      animation: blink 1.2s step-end infinite;
+    }
+
+    .urgency-section h3 {
+      font-family: Georgia, serif;
+      font-size: clamp(1.25rem, 5vw, 1.65rem);
+      font-weight: 700;
+      color: var(--text-head);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .urgency-section p {
+      font-size: 0.93rem;
+      color: #94A3B8;
+      max-width: 440px;
+      margin: 0 auto 28px;
+      line-height: 1.7;
+    }
+
+    .urgency-section p strong { color: #FCA5A5; }
+
+    /* ============================================================
+       TESTIMONIALS SECTION
+    ============================================================ */
+    .social-section {
+      padding: 60px 0;
+      background: linear-gradient(180deg, var(--bg-mid) 0%, var(--bg-deep) 100%);
+    }
+
+    .social-section h2 {
+      font-family: Georgia, serif;
+      font-size: clamp(1.3rem, 4.5vw, 1.7rem);
+      font-weight: 700;
+      color: var(--text-head);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .social-section .sub {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      margin-bottom: 32px;
+    }
+
+    .testi-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .testi-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px 20px;
+    }
+
+    .testi-stars {
+      color: var(--accent-cta);
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 10px;
+    }
+
+    .testi-text {
+      font-size: 0.95rem;
+      color: var(--text-body);
+      line-height: 1.72;
+      font-style: italic;
+      margin-bottom: 14px;
+    }
+
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .testi-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1e3a5f, #2d6a9f);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #93C5FD;
+      flex-shrink: 0;
+    }
+
+    .testi-name {
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: var(--text-head);
+    }
+
+    .testi-meta {
+      font-size: 0.76rem;
+      color: var(--text-dim);
+    }
+
+    .testi-verified {
+      font-size: 0.72rem;
+      color: #4ADE80;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    /* ============================================================
+       FINAL CTA SECTION
+    ============================================================ */
+    .final-cta-section {
+      padding: 72px 0 88px;
+      text-align: center;
+      background: linear-gradient(180deg, var(--bg-deep) 0%, #070C18 100%);
+      position: relative;
+    }
+
+    .final-cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 50% at 50% 40%, rgba(245,158,11,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .final-cta-section h2 {
+      font-family: Georgia, serif;
+      font-size: clamp(1.5rem, 5.5vw, 2.1rem);
+      font-weight: 700;
+      color: var(--text-head);
+      line-height: 1.25;
+      margin-bottom: 16px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .final-cta-section h2 em {
+      font-style: italic;
+      color: var(--accent-cta);
+    }
+
+    .final-cta-section p {
+      font-size: 1rem;
+      color: var(--text-dim);
+      max-width: 440px;
+      margin: 0 auto 36px;
+      line-height: 1.72;
+    }
+
+    .final-cta-section p strong { color: var(--text-body); }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .footer {
+      padding: 28px 0 36px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .footer p {
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      line-height: 1.7;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .footer a { color: #475569; text-decoration: underline; }
+
+    /* ============================================================
+       REDUCED MOTION
+    ============================================================ */
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity:1; transform:none; transition:none; }
+      .cta-btn { animation:none; transition:none; }
+    }
+
+    /* ============================================================
+       TABLET TWEAKS
+    ============================================================ */
+    @media (min-width: 520px) {
+      .diptych-panel { aspect-ratio: 4/5; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP URGENCY BAR -->
+  <div class="topbar">
+    <span>⚠</span>&nbsp; Warning: This Video May Be Taken Down Without Notice &nbsp;<span>⚠</span>
+  </div>
+
+  <!-- ==============================
+       HERO
+  ============================== -->
+  <section class="hero">
+    <div class="wrap">
+
+      <div class="hero-eyebrow reveal">Discovered by Sleep Researchers in 2024</div>
+
+      <h1 class="reveal rv1">
+        Doctors Are Shocked: This <em>7-Second Night Trick</em> Fixes Deep Sleep Without Pills
+      </h1>
+
+      <p class="hero-sub reveal rv2">
+        If you're lying awake at 2 AM, mind racing, body exhausted but unable to rest —
+        <strong>you're not broken.</strong> There's a hidden reason your brain won't switch off.
+        And once you see it, sleep changes forever.
+      </p>
+
+      <!-- DIPTYCH: PAIN vs RELIEF -->
+      <div class="diptych reveal rv3">
+        <!-- PAIN panel -->
+        <div class="diptych-panel pain">
+          <img
+            src="https://images.unsplash.com/photo-1519003300449-424ad0405076?w=600&q=75"
+            alt="Person lying awake stressed at 2:47 AM, checking the clock in the dark"
+            loading="eager"
+          />
+          <div class="diptych-label">Before</div>
+        </div>
+        <!-- RELIEF panel -->
+        <div class="diptych-panel relief">
+          <img
+            src="https://images.unsplash.com/photo-1520206183501-b80df61043c2?w=600&q=75"
+            alt="Person sleeping peacefully, calm and relaxed"
+            loading="eager"
+          />
+          <div class="diptych-label">After</div>
+        </div>
+        <div class="diptych-divider"></div>
+        <div class="diptych-caption">One method. One night. A complete difference.</div>
+      </div>
+
+      <!-- HERO CTA -->
+      <div class="cta-wrap reveal rv4">
+        <a
+          href="https://fea18l2bk0hjbzel7er7fl3zdz.hop.clickbank.net"
+          class="cta-btn"
+          target="_blank"
+          rel="noopener"
+        >
+          ▶ &nbsp;Watch The Sleep Secret Before It Disappears
+        </a>
+        <p class="cta-note"><strong>⚠ Limited Access</strong> &nbsp;·&nbsp; Free to watch &nbsp;·&nbsp; Under 8 minutes</p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="sec-rule"></div>
+
+  <!-- ==============================
+       EMOTIONAL STORY
+  ============================== -->
+  <section class="story-section">
+    <div class="wrap">
+      <p class="sec-label reveal">A story you might recognize</p>
+
+      <h2 class="reveal rv1">
+        "I Did Everything Right.<br/><em>And Still Couldn't Sleep."</em>
+      </h2>
+
+      <p class="story-p reveal rv1">
+        It always started the same way. You climb into bed, genuinely exhausted.
+        Legs heavy. Eyes stinging. You've been waiting for this moment all day.
+        You close your eyes — and then, like a switch flipping, <strong>your mind turns on.</strong>
+      </p>
+
+      <p class="story-p reveal rv2">
+        Tomorrow's meeting. That thing you said three years ago. Whether you locked the door.
+        Bills. Health. The future. Your brain runs through it all — every night, on repeat —
+        while the clock ticks past 1 AM... 2 AM... 3 AM.
+      </p>
+
+      <p class="story-p reveal rv2">
+        Mornings are a different kind of cruel. You drag yourself up, body hollow, eyes burning.
+        You down coffee just to function. By noon you're crashing. By evening you're barely present.
+        <strong>This cycle doesn't feel like living.</strong>
+      </p>
+
+      <p class="story-p highlight reveal rv3">
+        "I tried melatonin, sleep podcasts, cutting caffeine, blackout curtains, chamomile tea.
+        Nothing worked. Until someone showed me something I'd never heard before.
+        Something so simple I almost didn't believe it."
+      </p>
+
+      <p class="story-p reveal rv3">
+        It's not a pill. It's not a gadget. It's a <strong>specific, 7-second pattern</strong> you do
+        right before bed — one that directly communicates to your nervous system that it's safe
+        to shut down. And the first night you try it, you'll understand why nobody ever told you
+        about this.
+      </p>
+    </div>
+  </section>
+
+  <div class="sec-rule"></div>
+
+  <!-- ==============================
+       CURIOSITY BULLETS
+  ============================== -->
+  <section class="bullets-section">
+    <div class="wrap">
+      <p class="sec-label reveal">What you'll discover in the free video</p>
+
+      <h2 class="reveal rv1">The Sleep Lies Nobody Corrected You On</h2>
+
+      <p class="sub reveal rv1">Millions of people are doing it all wrong — and don't know it.</p>
+
+      <div class="bullet-list">
+
+        <div class="bullet-item reveal rv1">
+          <div class="bullet-icon">🧠</div>
+          <div>
+            <div class="bullet-text">Why sleeping 8 hours might actually be making things worse</div>
+            <div class="bullet-sub">It's not about length — it's about what happens in the 20 minutes before you close your eyes.</div>
+          </div>
+        </div>
+
+        <div class="bullet-item reveal rv2">
+          <div class="bullet-icon">🔑</div>
+          <div>
+            <div class="bullet-text">The hidden brain "switch" that controls deep sleep — and how to flip it</div>
+            <div class="bullet-sub">It's blocked in almost everyone with stress, anxiety, or overthinking. Here's the unlock.</div>
+          </div>
+        </div>
+
+        <div class="bullet-item reveal rv2">
+          <div class="bullet-icon">💤</div>
+          <div>
+            <div class="bullet-text">Why most people never reach real, restorative rest — no matter how long they sleep</div>
+            <div class="bullet-sub">Your body has sleep stages. If you skip the deepest ones, you wake up exhausted regardless.</div>
+          </div>
+        </div>
+
+        <div class="bullet-item reveal rv3">
+          <div class="bullet-icon">⏱</div>
+          <div>
+            <div class="bullet-text">The 7-second routine that bypasses your anxious mind entirely</div>
+            <div class="bullet-sub">No breathing exercises. No meditation apps. Just this — done once, right before bed.</div>
+          </div>
+        </div>
+
+        <div class="bullet-item reveal rv3">
+          <div class="bullet-icon">🚫</div>
+          <div>
+            <div class="bullet-text">The one thing you're probably doing at night that keeps your cortisol spiked until 3 AM</div>
+            <div class="bullet-sub">It's not your phone. Most people are shocked when they find out what it actually is.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       URGENCY BLOCK
+  ============================== -->
+  <section class="urgency-section">
+    <div class="wrap">
+
+      <div class="urgency-badge reveal">
+        <div class="dot"></div>
+        Limited Access Warning
+      </div>
+
+      <h3 class="reveal rv1">This Video Is Being Actively Suppressed</h3>
+
+      <p class="reveal rv2">
+        The sleep industry is worth $70 billion a year. They profit from you <strong>not sleeping well.</strong>
+        This video has already been reported and removed once. We don't know how long it stays up.
+        If you're seeing this page, it means it's still live — but that could change today.
+      </p>
+
+      <div class="cta-wrap reveal rv3">
+        <a
+          href="https://fea18l2bk0hjbzel7er7fl3zdz.hop.clickbank.net"
+          class="cta-btn"
+          target="_blank"
+          rel="noopener"
+        >
+          ▶ &nbsp;Watch The Sleep Secret Before It Disappears
+        </a>
+        <p class="cta-note" style="color:#475569;"><strong style="color:#EF4444;">⚠ Act now</strong> &nbsp;·&nbsp; Free video &nbsp;·&nbsp; No email required</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==============================
+       TESTIMONIALS
+  ============================== -->
+  <section class="social-section">
+    <div class="wrap">
+
+      <p class="sec-label reveal">Real people, real nights</p>
+      <h2 class="reveal rv1">What Happened When They Finally Watched It</h2>
+      <p class="sub reveal rv2">These are unsponsored accounts shared in our community.</p>
+
+      <div class="testi-list">
+
+        <!-- T1 -->
+        <div class="testi-card reveal rv1">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">
+            "I've had insomnia for six years. I've tried everything — two different prescription medications,
+            a sleep study, even a therapist. Nothing touched the 3 AM wake-ups.
+            I watched this video on a Tuesday night, half-believing it, and I was asleep before 11 PM for the first time I can remember.
+            I genuinely cried a little when I woke up feeling rested."
+          </p>
+          <div class="testi-author">
+            <div class="testi-avatar">MK</div>
+            <div>
+              <div class="testi-name">Michelle K.</div>
+              <div class="testi-meta">38, teacher · Phoenix, AZ</div>
+              <div class="testi-verified">✔ Verified viewer</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- T2 -->
+        <div class="testi-card reveal rv2">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">
+            "My wife sent me this link after I woke her up for the 4th night in a row just tossing around.
+            I was skeptical — I'm an engineer, I need evidence. But the explanation in the video actually makes
+            complete physiological sense. I've been sleeping through the night for three weeks straight.
+            My mood, my focus at work — everything shifted."
+          </p>
+          <div class="testi-author">
+            <div class="testi-avatar">DR</div>
+            <div>
+              <div class="testi-name">Daniel R.</div>
+              <div class="testi-meta">43, software engineer · Austin, TX</div>
+              <div class="testi-verified">✔ Verified viewer</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- T3 -->
+        <div class="testi-card reveal rv3">
+          <div class="testi-stars">★★★★☆</div>
+          <p class="testi-text">
+            "Honestly, I almost didn't watch it because it sounded too good to be true.
+            But I was desperate — running on 4 hours a night, anxious all day, snapping at my kids.
+            It took me about 3 nights to really feel the difference, but by day 5 I was getting deep sleep
+            for the first time in what felt like years. I wish I'd found this sooner."
+          </p>
+          <div class="testi-author">
+            <div class="testi-avatar">ST</div>
+            <div>
+              <div class="testi-name">Sarah T.</div>
+              <div class="testi-meta">31, marketing manager · Chicago, IL</div>
+              <div class="testi-verified">✔ Verified viewer</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="sec-rule"></div>
+
+  <!-- ==============================
+       FINAL CTA
+  ============================== -->
+  <section class="final-cta-section">
+    <div class="wrap">
+
+      <h2 class="reveal rv1">
+        Tonight Could Be the Last Night<br/>
+        You <em>Lie Awake Suffering</em>
+      </h2>
+
+      <p class="reveal rv2">
+        You don't need another supplement. You don't need a sleep tracker.
+        You need to understand <strong>why your brain won't switch off</strong>
+        — and the one thing that finally tells it it's safe to let go.
+        Watch the free video before it's gone.
+      </p>
+
+      <div class="cta-wrap reveal rv3">
+        <a
+          href="https://fea18l2bk0hjbzel7er7fl3zdz.hop.clickbank.net"
+          class="cta-btn"
+          target="_blank"
+          rel="noopener"
+        >
+          ▶ &nbsp;Watch The Sleep Secret Before It Disappears
+        </a>
+        <p class="cta-note"><strong>⚠ This page may go offline soon.</strong> &nbsp;Free to watch &nbsp;·&nbsp; No sign-up</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==============================
+       FOOTER
+  ============================== -->
+  <footer class="footer">
+    <div class="wrap">
+      <p>
+        This page contains affiliate links. We may receive a commission if you make a purchase through this page,
+        at no additional cost to you. Individual results may vary. This content is for informational purposes only
+        and does not constitute medical advice. If you have a sleep disorder or medical condition, please consult
+        a qualified healthcare professional.<br/><br/>
+        <a href="#">Privacy Policy</a> &nbsp;·&nbsp;
+        <a href="#">Disclaimer</a> &nbsp;·&nbsp;
+        <a href="#">Contact</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- ==============================
+       SCROLL REVEAL SCRIPT
+  ============================== -->
+  <script>
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+
+      function check() {
+        els.forEach(function (el) {
+          var rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 40) {
+            el.classList.add('in');
+          }
+        });
+      }
+
+      // Immediately reveal anything already in view
+      check();
+      window.addEventListener('scroll', check, { passive: true });
+      window.addEventListener('resize', check, { passive: true });
+    })();
+  </script>
+
+</body>
+</html>
